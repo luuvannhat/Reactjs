@@ -81,7 +81,6 @@ class UserManage extends Component {
     }
 
     handleEditUser = (user) => {
-        console.log('check edit user', user);
         this.setState({
             isOpenModalEditUSer: true,
             userEdit: user,
@@ -105,7 +104,6 @@ class UserManage extends Component {
     }
 
     render() {
-        console.log('check', this.state);
 
         // eslint-disable-next-line no-unused-vars
         let arrUsers = this.state.arrUsers;

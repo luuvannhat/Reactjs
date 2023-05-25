@@ -78,7 +78,6 @@ class ModalUser extends Component {
             //call api create modal
             this.props.createNewuser(this.state);
         }
-        console.log('data modal', this.state);
     }
     render() {
         return (
