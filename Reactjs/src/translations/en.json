@@ -60,7 +60,7 @@
         "edit": "Edit user"
     },
     "homepage": {
-        "outstanding-doctor": "Last week's featured doctor",
+        "outstanding-doctor": "List doctor",
         "more-infor": "More infor",
         "specialty": "Specialties"
     },
@@ -111,7 +111,9 @@
             "province": "Province",
             "nameClinic": "Clinic's name",
             "addressClinic": "Clinic's address",
-            "note": "Note"
+            "note": "Note",
+            "specialty": "Specialty",
+            "select-clinic": "Clinic"
         }
     }
 }
