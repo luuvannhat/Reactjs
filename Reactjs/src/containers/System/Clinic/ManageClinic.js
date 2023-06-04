@@ -5,9 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import './ManageClinic.scss';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
-import { createNewClinic, editSpecialtyService } from '../../../services/userService';
+import { createNewClinic, editClinicService, getAllClinic, deleteClinic } from '../../../services/userService';
 import { toast } from 'react-toastify';
-import { getAllSpecialty, deleteSpecialty } from '../../../services/userService';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 class ManageClinic extends Component {
 
@@ -20,12 +19,12 @@ class ManageClinic extends Component {
             descriptionHTML: '',
             descriptionMarkdown: '',
             dataClinic: [],
-            specialtyEditId: '',
+            clinicEditId: '',
         }
     }
 
     async componentDidMount() {
-        let res = await getAllSpecialty();
+        let res = await getAllClinic();
         if (res && res.errCode === 0) {
             this.setState({
                 dataClinic: res.data ? res.data : []
@@ -94,10 +93,11 @@ class ManageClinic extends Component {
 
     }
 
-    handleUpdateSpecialty = async () => {
-        let res = await editSpecialtyService({
-            id: this.state.specialtyEditId,
+    handleUpdateClinic = async () => {
+        let res = await editClinicService({
+            id: this.state.clinicEditId,
             name: this.state.name,
+            address: this.state.address,
             imageBase64: this.state.imageBase64,
             descriptionHTML: this.state.descriptionHTML,
             descriptionMarkdown: this.state.descriptionMarkdown,
@@ -106,40 +106,42 @@ class ManageClinic extends Component {
         if (res && res.errCode === 0) {
             this.setState({
                 name: '',
+                address: '',
                 imageBase64: '',
                 descriptionHTML: '',
                 descriptionMarkdown: '',
                 dataClinic: this.state.dataClinic,
             })
-            toast.success('Update specialty succeed!');
+            toast.success('Update clinic succeed!');
+            window.location.reload();
         } else {
             toast.error('Somthing wrong....!');
         }
 
     }
 
-    handleEditSpecialty = (specialty) => {
+    handleEditClinic = (clinic) => {
         // console.log('check specialty Id ', specialty.name);
         let imageBase64 = '';
-        if (specialty.image) {
-            imageBase64 = new Buffer(specialty.image, 'base64').toString('binary');
+        if (clinic.image) {
+            imageBase64 = new Buffer(clinic.image, 'base64').toString('binary');
         }
         this.setState({
-            name: specialty.name,
+            name: clinic.name,
+            address: clinic.address,
             imageBase64: imageBase64,
-            descriptionHTML: specialty.descriptionHTML,
-            descriptionMarkdown: specialty.descriptionMarkdown,
-            specialtyEditId: specialty.id
+            descriptionHTML: clinic.descriptionHTML,
+            descriptionMarkdown: clinic.descriptionMarkdown,
+            clinicEditId: clinic.id
 
         })
 
     }
 
-    handleDeleteUser = async (specialty) => {
-        let res = await deleteSpecialty(specialty.id);
-        console.log('check ', specialty);
+    handleDeleteClinic = async (clinic) => {
+        let res = await deleteClinic(clinic.id);
         if (res && res.errCode === 0) {
-            toast.success('delete  specialty succeed!');
+            toast.success('delete  clinic succeed!');
             window.location.reload();
         } else {
             toast.error('Somthing wrong....!');
@@ -183,7 +185,7 @@ class ManageClinic extends Component {
                             onClick={() => this.handleSaveNewClinic()}
                         >Create</button>
                         <button className='btn-update-specialty'
-                            onClick={() => this.handleUpdateSpecialty()}
+                            onClick={() => this.handleUpdateClinic()}
                         >Update</button>
                     </div>
 
@@ -191,7 +193,8 @@ class ManageClinic extends Component {
                         <table id='TableManageSpecialty'>
                             <tbody>
                                 <tr>
-                                    <th>Specialty name</th>
+                                    <th>Clinic name</th>
+                                    <th>Address</th>
                                     <th>Actions</th>
                                 </tr>
                                 {dataClinic && dataClinic.length > 0 &&
@@ -199,15 +202,16 @@ class ManageClinic extends Component {
                                         return (
                                             <tr key={index}>
                                                 <td>{item.name}</td>
+                                                <td>{item.address}</td>
                                                 <td>
                                                     <button
                                                         className="btn-edit"
-                                                        onClick={() => this.handleEditSpecialty(item)}
+                                                        onClick={() => this.handleEditClinic(item)}
                                                     ><i className="fas fa-pencil-alt"></i>
                                                     </button>
                                                     <button
                                                         className='btn-delete'
-                                                        onClick={() => this.handleDeleteUser(item)}
+                                                        onClick={() => this.handleDeleteClinic(item)}
                                                     > <i className="fas fa-trash"></i>
                                                     </button>
                                                 </td>
