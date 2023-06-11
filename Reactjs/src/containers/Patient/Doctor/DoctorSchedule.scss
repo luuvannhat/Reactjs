@@ -1,8 +1,9 @@
-.doctor-schedule-container{
+.doctor-schedule-container {
     border-right: 1px solid #ddd;
     height: 100%;
-    .all-schedule{
-        select{
+
+    .all-schedule {
+        select {
             border-bottom: 1px solid #ddd;
             border-top: none;
             border-right: none;
@@ -13,61 +14,64 @@
             color: #337ab7;
             font-weight: 600;
 
-            option{
+            option {
                 cursor: pointer;
             }
         }
     }
 
-    .all-available-time{
-        
-        .text-calendar{
+    .all-available-time {
+
+        .text-calendar {
             margin: 10px 0;
             color: #333;
-            span{
+
+            span {
                 text-transform: uppercase;
                 margin-left: 5px;
             }
         }
-        .time-content{
-            .time-content-btns{
+
+        .time-content {
+            .time-content-btns {
                 display: flex;
                 gap: 15px;
                 flex-wrap: wrap;
-            
-                button{
+
+                button {
                     padding: 8px 10px;
                     border: none;
                     outline: none;
-                    background-color: #fff04b;
+                    background-color: #4fe141;
                     border-radius: 3px;
                     font-weight: 600;
-                    color: #333;
+                    color: white;
 
-                    &:hover{
-                            background-color: #45c3d2;
-                            color: white ;
-                        }
-                     }
+                    &:hover {
+                        background-color: #73d2dd;
+                        color: white;
+                    }
+                }
 
-                .btn-vie{
+                .btn-vie {
                     min-width: 120px;
                 }
-                .btn-en{
+
+                .btn-en {
                     min-width: 170px;
                 }
 
-                .no-schedule{
+                .no-schedule {
                     font-style: italic;
                     font-size: 14px;
                 }
-        
+
             }
 
-            .book-free{
+            .book-free {
                 margin-top: 10px;
             }
-            
+
         }
     }
 

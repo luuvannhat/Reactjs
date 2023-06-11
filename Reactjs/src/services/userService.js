@@ -67,6 +67,9 @@ const postVerifyBookAppointment = (data) => {
     return axios.post('/api/verify-book-appointment', data);
 }
 
+const postCancelBookAppointment = (data) => {
+    return axios.post('/api/cancel-book-appointment', data);
+}
 
 // ================================ Specialty =============================
 const createNewSpecialty = (data) => {
@@ -124,8 +127,16 @@ const getAllPatientForDoctor = (data) => {
     return axios.get(`/api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`);
 }
 
+const getAllPatientForDoctorSuceed = (data) => {
+    return axios.get(`/api/get-list-booking-for-doctor-suceed?doctorId=${data.doctorId}&date=${data.date}`);
+}
+
 const postSendRemedy = (data) => {
     return axios.post('/api/send-remedy', data);
+}
+
+const getDoctorNameBySpecialtyId = (doctorId) => {
+    return axios.get(`/api/get-doctor-name-by-specialty-id?doctorId=${doctorId}`);
 }
 
 export {
@@ -140,5 +151,7 @@ export {
     createNewSpecialty, getAllSpecialty, deleteSpecialty, getDetailSpecialtyById,
     editSpecialtyService, createNewClinic, getAllClinic,
     getDetailClinicById, editClinicService, deleteClinic,
-    getAllPatientForDoctor, postSendRemedy
+    getAllPatientForDoctor, postSendRemedy, getDoctorNameBySpecialtyId,
+    postCancelBookAppointment, getAllPatientForDoctorSuceed
+
 }

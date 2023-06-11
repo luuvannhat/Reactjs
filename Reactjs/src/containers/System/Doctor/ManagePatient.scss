@@ -1,10 +1,12 @@
 .manage-patient-container {
 
     .m-p-title {
-        font-size: 15px;
+        font-size: 20px;
         margin: 10px 0;
         text-align: center;
         text-transform: uppercase;
+        font-weight: 600;
+
     }
 
     .manage-patient-body {
@@ -45,6 +47,14 @@
                 height: 30px;
                 border-radius: 3px;
                 background: #39dca0;
+            }
+
+            .patient-booking-succeeds {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: 600;
+                margin-top: 30px;
             }
         }
     }

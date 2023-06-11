@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import * as actions from '../../../store/actions';
 import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router';
+import { getDoctorNameBySpecialtyId } from '../../../services/userService';
 class OutStandingDoctor extends Component {
 
     constructor(props) {
@@ -35,6 +36,7 @@ class OutStandingDoctor extends Component {
     render() {
         let arrDoctors = this.state.arrDoctors;
         // arrDoctors = arrDoctors.concat(arrDoctors)
+        // console.log('nhat check doctor', arrDoctors);
         let { language } = this.props;
         return (
             <div className='section-share section-outstanding-doctor'>
@@ -43,9 +45,9 @@ class OutStandingDoctor extends Component {
                         <span className='title-section'>
                             <FormattedMessage id="homepage.outstanding-doctor" />
                         </span>
-                        <button className='btn-section'>
+                        {/* <button className='btn-section'>
                             <FormattedMessage id="homepage.more-infor" />
-                        </button>
+                        </button> */}
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
@@ -58,6 +60,8 @@ class OutStandingDoctor extends Component {
                                     }
                                     let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                                     let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
+                                    // let nameSpecialty = getDoctorNameBySpecialtyId(`${item.id}`);
+                                    // console.log('check name ', nameSpecialty.data);
                                     return (
                                         <div className='section-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
                                             <div className='customize-border'>
@@ -68,7 +72,7 @@ class OutStandingDoctor extends Component {
                                                 </div>
                                                 <div className='position text-center'>
                                                     <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
-                                                    <div>Cơ xương khớp 1</div>
+                                                    {/* <div>{nameSpecialty.data}</div> */}
                                                 </div>
                                             </div>
                                         </div>

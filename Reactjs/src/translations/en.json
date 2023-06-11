@@ -22,8 +22,15 @@
         "child6": "Dental examination"
     },
     "sectionspecialty": {
-        "title1": "Popular specialties",
+        "title1": "Specialties",
         "title2": "See more"
+    },
+    "medicalfacility": {
+        "title1": "Outstanding medical facility"
+    },
+    "about": {
+        "title1": "What the media say about Bookingcare",
+        "title2": "VTV1 coffee start-up program - Vietnam Television introduces the BookingCare specialist doctor booking platform. BookingCare is an appointment booking system that helps patients easily choose the right specialist based on a network of specialists, clearly verified information, transparent information related to the operation. Medical examination and treatment: time, process, service price, equipment, insurance, address, experience, training of the doctor..."
     },
     "menu": {
         "admin": {

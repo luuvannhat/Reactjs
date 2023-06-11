@@ -149,10 +149,11 @@ class BookingModal extends Component {
         })
 
         if (res && res.errCode === 0) {
-            toast.success('Booking a new appointment succeed!');
+            toast.success('Đặt lịch hẹn thành công!');
             this.props.closeBookingClose();
+
         } else {
-            toast.error('Booking a new appointment error!');
+            toast.error('Khung giờ này bác sĩ đã có lịch hẹn!');
         }
     }
     render() {

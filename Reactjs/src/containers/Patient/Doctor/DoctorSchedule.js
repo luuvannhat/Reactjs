@@ -16,7 +16,8 @@ class DoctorSchedule extends Component {
             allDays: [],
             allAvalableTime: [],
             isOpenModalBooking: false,
-            dataScheduleTimeModal: {}
+            dataScheduleTimeModal: {},
+            checkSchedule: false,
         }
     }
 
@@ -182,6 +183,7 @@ class DoctorSchedule extends Component {
                     isOpenModal={isOpenModalBooking}
                     closeBookingClose={this.closeBookingClose}
                     dataTime={dataScheduleTimeModal}
+
                 />
             </>
         );
